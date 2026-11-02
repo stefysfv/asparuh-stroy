@@ -3,7 +3,7 @@
    ========================================================================= */
 const servicesCatalog = {
     banya: {
-        subtitle: "УСЛУГА 01 // МОКРИ ПОМЕЩЕНИЯ",
+        subtitle: "Категория 01 • Мокри помещения",
         title: "Цялостен ремонт на бани и мокри помещения",
         formCategory: "Цялостен ремонт на баня",
         image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000&q=80",
@@ -29,7 +29,7 @@ const servicesCatalog = {
         ]
     },
     shpaklovka: {
-        subtitle: "УСЛУГА 02 // ПОДГОТОВКА НА СТЕНИ И ТАВАНИ",
+        subtitle: "Категория 02 • Подготовка на стени и тавани",
         title: "Шпакловка, изправяне на стени и мазилки",
         formCategory: "Шпакловка и мазилки",
         image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1000&q=80",
@@ -39,7 +39,7 @@ const servicesCatalog = {
             "Изправяне на големи неравности и кривини с гипсова мазилка.",
             "Монтаж на алуминиеви ъглохранители по всички външни ръбове и колони за перфектна геометрия.",
             "Полагане на гипсова шпакловка с вграждане на армираща стъклотекстилна мрежа.",
-            "Нанасяне на 2 ръце фина пастообразна шпакловка (Sheetrock / Knauf) за огледална гладкост.",
+            "Нанасяне на 2 ръце фина пастообразна шпакловка за огледална гладкост.",
             "Машинно шлайфане с жираф и прахосмукачка без запрашаване на обекта."
         ],
         prices: [
@@ -54,7 +54,7 @@ const servicesCatalog = {
         ]
     },
     boyadisvane: {
-        subtitle: "УСЛУГА 03 // ФИНИШНИ ПОКРИТИЯ И ЦВЕТОВЕ",
+        subtitle: "Категория 03 • Финишни покрития и цветове",
         title: "Професионално боядисване с латекс",
         formCategory: "Боядисване с латекс",
         image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1000&q=80",
@@ -64,7 +64,7 @@ const servicesCatalog = {
             "Обезпрашаване на стените и таваните и локални корекции на дребни забележки (дупчици, драскотини).",
             "Нанасяне на специален грунд преди боя за уеднаквяване на попиваемостта и здрав захват на латекса.",
             "Прецизно отсичане на ъглите между тавана и стените с професионални ленти.",
-            "Нанасяне на две ръце висококачествен миещ се или дишащ латекс (ръчно или машинно Airless).",
+            "Нанасяне на две ръце висококачествен миещ се или дишащ латекс.",
             "Премахване на предпазните фолиа и чисто предаване на боядисаните помещения."
         ],
         prices: [
@@ -79,7 +79,7 @@ const servicesCatalog = {
         ]
     },
     gipsokarton: {
-        subtitle: "УСЛУГА 04 // СУХО СТРОИТЕЛСТВО",
+        subtitle: "Категория 04 • Сухо строителство",
         title: "Гипсокартон, преградни стени и окачени тавани",
         formCategory: "Гипсокартон и окачени тавани",
         image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80",
@@ -104,7 +104,7 @@ const servicesCatalog = {
         ]
     },
     elektro: {
-        subtitle: "УСЛУГА 05 // ЕЛЕКТРОИНСТАЛАЦИИ",
+        subtitle: "Категория 05 • Електроинсталации",
         title: "Контакти, ключове, LED осветление и табла",
         formCategory: "Електроуслуги и осветление",
         image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1000&q=80",
@@ -131,8 +131,17 @@ const servicesCatalog = {
 };
 
 /* =========================================================================
-   2. НАВИГАЦИЯ МЕЖДУ СТРАНИЦИТЕ (БЕЗ СКРОЛВАНЕ)
+   2. НАВИГАЦИЯ МЕЖДУ СТРАНИЦИТЕ И МОБИЛНО МЕНЮ
    ========================================================================= */
+function closeMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileIcon = document.getElementById('mobile-menu-icon');
+    mobileMenu.classList.add('hidden');
+    if (mobileIcon) {
+        mobileIcon.className = 'fa-solid fa-bars text-base';
+    }
+}
+
 function navigateTo(viewName) {
     document.querySelectorAll('.page-view').forEach(view => {
         view.classList.add('hidden');
@@ -143,7 +152,7 @@ function navigateTo(viewName) {
         targetView.classList.remove('hidden');
     }
 
-    document.getElementById('mobile-menu').classList.add('hidden');
+    closeMobileMenu();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -165,25 +174,25 @@ function openServicePage(serviceKey) {
     const stepsList = document.getElementById('srv-steps');
     stepsList.innerHTML = data.steps.map(step => `
         <li class="flex items-start gap-3">
-            <span class="w-5 h-5 bg-clay-500 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">+</span>
+            <span class="w-5 h-5 rounded-full bg-amber-100 text-amber-700 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span>
             <span>${step}</span>
         </li>
     `).join('');
 
     const pricesBody = document.getElementById('srv-prices-body');
     pricesBody.innerHTML = data.prices.map(row => `
-        <tr class="hover:bg-stonebg/70 transition">
-            <td class="py-3.5 px-4 font-medium text-graphite">${row.item}</td>
-            <td class="py-3.5 px-4 text-center text-muted text-xs">${row.unit}</td>
-            <td class="py-3.5 px-4 text-right font-bold text-clay-600">${row.price}</td>
+        <tr class="hover:bg-slate-50 transition">
+            <td class="py-3.5 px-4 font-medium text-navy-900">${row.item}</td>
+            <td class="py-3.5 px-3 text-center text-slate-500 text-xs">${row.unit}</td>
+            <td class="py-3.5 px-4 text-right font-semibold text-amber-600">${row.price}</td>
         </tr>
     `).join('');
 
     document.querySelectorAll('.srv-tab-btn').forEach(btn => {
         if (btn.getAttribute('data-srv-btn') === serviceKey) {
-            btn.className = "srv-tab-btn px-3 py-2 text-xs font-bold uppercase border border-graphite bg-graphite text-white transition";
+            btn.className = "srv-tab-btn px-3.5 py-2 rounded-xl text-xs font-medium bg-navy-900 text-white transition";
         } else {
-            btn.className = "srv-tab-btn px-3 py-2 text-xs font-bold uppercase border border-gridline bg-stonebg text-graphite hover:border-graphite transition";
+            btn.className = "srv-tab-btn px-3.5 py-2 rounded-xl text-xs font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 transition";
         }
     });
 
@@ -196,7 +205,7 @@ function openServicePage(serviceKey) {
 const projectsData = [
     {
         id: 1,
-        code: "ОБ-01",
+        code: "Обект 01",
         category: "бани",
         title: "Цялостен ремонт на баня с душ зона",
         location: "гр. София, кв. Лозенец",
@@ -208,7 +217,7 @@ const projectsData = [
     },
     {
         id: 2,
-        code: "ОБ-02",
+        code: "Обект 02",
         category: "гипсокартон",
         title: "Окачени тавани и скрито LED осветление",
         location: "гр. София, кв. Изток",
@@ -220,7 +229,7 @@ const projectsData = [
     },
     {
         id: 3,
-        code: "ОБ-03",
+        code: "Обект 03",
         category: "шпакловка",
         title: "Фина шпакловка и изправяне на стени",
         location: "гр. София, кв. Иван Вазов",
@@ -232,7 +241,7 @@ const projectsData = [
     },
     {
         id: 4,
-        code: "ОБ-04",
+        code: "Обект 04",
         category: "боядисване",
         title: "Боядисване на тристаен апартамент с латекс",
         location: "гр. София, кв. Младост",
@@ -255,29 +264,29 @@ function renderPortfolio(filterCategory = 'all') {
 
     filtered.forEach(project => {
         const card = document.createElement('div');
-        card.className = "bg-paper border border-gridline flex flex-col justify-between";
+        card.className = "bg-white rounded-2xl border border-slate-200/80 shadow-soft overflow-hidden flex flex-col justify-between";
         card.innerHTML = `
             <div>
-                <div class="px-4 py-2.5 border-b border-gridline flex justify-between items-center text-[11px] bg-stonebg/50">
-                    <span class="font-bold text-graphite">${project.code} // ${project.location}</span>
-                    <span class="text-muted">${project.area} | ${project.duration}</span>
+                <div class="px-5 py-3 border-b border-slate-100 flex justify-between items-center text-xs bg-slate-50/70">
+                    <span class="font-semibold text-navy-900">${project.location}</span>
+                    <span class="text-slate-500">${project.area} • ${project.duration}</span>
                 </div>
-                <div class="relative h-64 overflow-hidden bg-zinc-900">
+                <div class="relative h-64 overflow-hidden bg-slate-900">
                     <img id="img-${project.id}" src="${project.afterImg}" alt="${project.title}" 
                          onerror="this.src='https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=800&q=80'"
                          class="w-full h-full object-cover transition duration-500">
-                    <span id="badge-${project.id}" class="absolute top-3 left-3 bg-olive text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
-                        СЛЕД РЕМОНТА
+                    <span id="badge-${project.id}" class="absolute top-3 left-3 bg-emerald-600 text-white text-[11px] font-medium rounded-lg px-3 py-1 shadow">
+                        След ремонта
                     </span>
                     <button onclick="toggleBeforeAfter(${project.id})" id="btn-${project.id}" data-state="after"
-                            class="absolute bottom-3 right-3 bg-paper/95 hover:bg-clay-500 hover:text-white text-graphite border border-graphite text-[11px] font-bold uppercase px-3 py-1.5 transition flex items-center space-x-1.5">
+                            class="absolute bottom-3 right-3 bg-white/95 hover:bg-amber-600 hover:text-white text-navy-900 rounded-xl text-xs font-medium px-3.5 py-2 shadow-md transition flex items-center space-x-1.5">
                         <i class="fa-solid fa-repeat text-[10px]"></i>
-                        <span>[Виж ПРЕДИ ремонта]</span>
+                        <span>Виж ПРЕДИ ремонта</span>
                     </button>
                 </div>
                 <div class="p-5">
-                    <h3 class="text-lg font-bold text-graphite mb-2 leading-snug">${project.title}</h3>
-                    <p class="text-xs text-muted leading-relaxed">${project.description}</p>
+                    <h3 class="text-lg font-bold text-navy-900 mb-2 leading-snug">${project.title}</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">${project.description}</p>
                 </div>
             </div>
         `;
@@ -293,24 +302,24 @@ function toggleBeforeAfter(projectId) {
 
     if (btnEl.getAttribute('data-state') === 'after') {
         imgEl.src = project.beforeImg;
-        badgeEl.textContent = 'ПРЕДИ РЕМОНТА';
-        badgeEl.className = 'absolute top-3 left-3 bg-clay-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1';
-        btnEl.innerHTML = '<i class="fa-solid fa-check text-[10px]"></i> <span>[Върни СЛЕД ремонта]</span>';
+        badgeEl.textContent = 'Преди ремонта';
+        badgeEl.className = 'absolute top-3 left-3 bg-amber-600 text-white text-[11px] font-medium rounded-lg px-3 py-1 shadow';
+        btnEl.innerHTML = '<i class="fa-solid fa-check text-[10px]"></i> <span>Върни СЛЕД ремонта</span>';
         btnEl.setAttribute('data-state', 'before');
     } else {
         imgEl.src = project.afterImg;
-        badgeEl.textContent = 'СЛЕД РЕМОНТА';
-        badgeEl.className = 'absolute top-3 left-3 bg-olive text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1';
-        btnEl.innerHTML = '<i class="fa-solid fa-repeat text-[10px]"></i> <span>[Виж ПРЕДИ ремонта]</span>';
+        badgeEl.textContent = 'След ремонта';
+        badgeEl.className = 'absolute top-3 left-3 bg-emerald-600 text-white text-[11px] font-medium rounded-lg px-3 py-1 shadow';
+        btnEl.innerHTML = '<i class="fa-solid fa-repeat text-[10px]"></i> <span>Виж ПРЕДИ ремонта</span>';
         btnEl.setAttribute('data-state', 'after');
     }
 }
 
 function filterProjects(category, btnElement) {
     document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.className = "filter-btn bg-paper border border-gridline text-graphite hover:border-graphite px-4 py-2.5 uppercase tracking-wider transition";
+        btn.className = "filter-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-4 py-2.5 rounded-xl transition";
     });
-    btnElement.className = "filter-btn bg-graphite text-white px-4 py-2.5 uppercase tracking-wider transition";
+    btnElement.className = "filter-btn bg-navy-900 text-white px-4 py-2.5 rounded-xl transition";
     renderPortfolio(category);
 }
 
@@ -327,14 +336,14 @@ fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
 
 dropZone.addEventListener('dragover', (e) => {
     e.preventDefault();
-    dropZone.classList.add('border-clay-500', 'bg-paper');
+    dropZone.classList.add('border-amber-500', 'bg-amber-50/40');
 });
 dropZone.addEventListener('dragleave', () => {
-    dropZone.classList.remove('border-clay-500', 'bg-paper');
+    dropZone.classList.remove('border-amber-500', 'bg-amber-50/40');
 });
 dropZone.addEventListener('drop', (e) => {
     e.preventDefault();
-    dropZone.classList.remove('border-clay-500', 'bg-paper');
+    dropZone.classList.remove('border-amber-500', 'bg-amber-50/40');
     handleFiles(e.dataTransfer.files);
 });
 
@@ -382,10 +391,10 @@ function renderPhotoPreviews() {
     }
     previewContainer.classList.remove('hidden');
     previewContainer.innerHTML = uploadedPhotos.map((photo, index) => `
-        <div class="relative border border-gridline h-24 bg-stonebg overflow-hidden">
+        <div class="relative rounded-xl border border-slate-200 h-24 bg-slate-50 overflow-hidden">
             <img src="${photo.dataUrl}" class="w-full h-full object-cover">
             <button type="button" onclick="removePhoto(${index})" 
-                    class="absolute top-1 right-1 w-5 h-5 bg-graphite text-white text-xs flex items-center justify-center hover:bg-clay-500">
+                    class="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-navy-900/80 text-white text-xs flex items-center justify-center hover:bg-amber-600 transition">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
@@ -450,7 +459,12 @@ function closeEmailModal() {
 }
 
 document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-    document.getElementById('mobile-menu').classList.toggle('hidden');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileIcon = document.getElementById('mobile-menu-icon');
+    const isHidden = mobileMenu.classList.toggle('hidden');
+    if (mobileIcon) {
+        mobileIcon.className = isHidden ? 'fa-solid fa-bars text-base' : 'fa-solid fa-xmark text-lg';
+    }
 });
 
 window.addEventListener('DOMContentLoaded', () => {
