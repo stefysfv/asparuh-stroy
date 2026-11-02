@@ -50,24 +50,19 @@
 <body class="bg-apple-bg text-apple-dark antialiased selection:bg-apple-blue selection:text-white flex flex-col min-h-screen">
 
     <!-- =================================================================
-         ПРОПОРЦИОНАЛЕН ТАСКБАР С 3-ЗОНОВО РАЗПРЕДЕЛЕНИЕ (Височина 76px)
-         Ляво: Креативно Лого | Център: Навигация | Дясно: Телефон + Бутон
+         ПРОПОРЦИОНАЛЕН ТАСКБАР С 3-ЗОНОВО РАЗПРЕДЕЛЕНИЕ
          ================================================================= -->
     <header class="sticky top-0 z-50 bg-white/85 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 
-                <!-- ЗОНА 1 (ЛЯВО): КРЕАТИВНО ЛОГО С БЪЛГАРСКИ МОТИВ И РЕМОНТЕН СИМВОЛ -->
+                <!-- ЗОНА 1 (ЛЯВО): ЛОГО -->
                 <button onclick="navigateTo('home')" class="flex items-center space-x-3.5 group focus:outline-none text-left shrink-0">
                     <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-apple-dark to-slate-800 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-200 relative overflow-hidden border border-white/10">
-                        <!-- Авторско векторно лого: Покрив/Мистрия ("А") + Българска шевица (ромб/канатица за дом и майсторство) -->
                         <svg class="w-8 h-8" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Външен контур на покрив / буква А / шпатула -->
                             <path d="M18 4L5 24H11.5L18 13.5L24.5 24H31L18 4Z" fill="#FFFFFF"/>
-                            <!-- Централен български мотив (Ромб от шевица - символ на домашното огнище) -->
                             <path d="M18 16.5L22.5 21L18 25.5L13.5 21L18 16.5Z" fill="#D97706"/>
                             <circle cx="18" cy="21" r="1.4" fill="#FFFFFF"/>
-                            <!-- Декоративни крила на шевицата в основата (трибагреник акцент / стабилна основа) -->
                             <path d="M7 28.5H14.5L18 31.5L21.5 28.5H29" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
@@ -81,7 +76,7 @@
                     </div>
                 </button>
 
-                <!-- ЗОНА 2 (ЦЕНТЪР): ЦЕНТРИРАНИ МЕНЮТА В ЕЛЕГАНТНА КАПСУЛА -->
+                <!-- ЗОНА 2 (ЦЕНТЪР): НАВИГАЦИЯ -->
                 <nav class="hidden md:flex items-center bg-slate-100/90 border border-slate-200/80 rounded-full p-1.5 space-x-1">
                     <button onclick="navigateTo('home')" class="px-5 py-2 rounded-full text-sm font-semibold text-apple-dark hover:bg-white hover:shadow-sm transition">
                         Начало
@@ -94,7 +89,6 @@
                             <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:text-apple-blue group-hover:rotate-180 transition-transform duration-200"></i>
                         </button>
 
-                        <!-- Падащ панел -->
                         <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 w-80 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 z-50">
                             <div class="bg-white/95 backdrop-blur-xl rounded-2xl shadow-glass border border-slate-200/80 p-2 space-y-1">
                                 
@@ -216,221 +210,150 @@
     <main class="flex-grow">
 
         <!-- ===============================================================
-             СТРАНИЦА 1: НАЧАЛНА СТРАНИЦА С ПРОЗИРАЩА СНИМКА И GLASS ЕФЕКТ
+             СТРАНИЦА 1: КОМПАКТНА НАЧАЛНА СТРАНИЦА С БУТОНИ (БЕЗ СКРОЛВАНЕ)
              =============================================================== -->
-        <div id="view-home" class="page-view relative min-h-[calc(100vh-80px)] flex items-center py-10 sm:py-14 overflow-hidden">
+        <div id="view-home" class="page-view relative min-h-[calc(100vh-80px)] flex items-center py-6 sm:py-12 overflow-hidden">
             
-            <!-- Фонова снимка, която прозира ясно (можеш да смениш линка в src с твоя снимка) -->
+            <!-- Фонова снимка, която прозира ясно -->
             <div class="absolute inset-0 z-0">
                 <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85" 
                      alt="Интериорен ремонт" 
                      class="w-full h-full object-cover object-center scale-105">
-                <!-- Изчистен градиентен воал (НЕ е матиран), за да се вижда снимката ясно, но текстът да е контрастен -->
                 <div class="absolute inset-0 bg-gradient-to-b from-slate-950/65 via-slate-900/45 to-slate-950/75"></div>
             </div>
 
             <!-- Съдържание върху прозиращата снимка -->
-            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 
-                <!-- Заглавен блок с кристален Glass ефект -->
-                <div class="text-center max-w-3xl mx-auto mb-10 p-6 sm:p-8 rounded-3xl clear-glass-hero text-white">
-                    <div class="inline-flex items-center space-x-2 bg-white/15 border border-white/30 px-4 py-1.5 rounded-full text-xs font-medium text-white mb-4">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <span>Вътрешни ремонти в гр. София • Безплатен оглед на място</span>
-                    </div>
-                    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-3 drop-shadow-sm">
-                        Прецизни ремонти. Ясни цени.
-                    </h1>
-                    <p class="text-sm sm:text-base text-white/90 leading-relaxed max-w-2xl mx-auto">
-                        Изберете категория по-долу, за да прегледате какво включва услугата и нашия ценоразпис за труд, или ни изпратете снимки за оферта.
-                    </p>
-                </div>
-
-                <!-- BENTO GRID С УСЛУГИТЕ (Прозрачни Glass карти върху снимката) -->
-                <!-- Заглавен блок с кристален Glass ефект (по-компактен на телефон) -->
-                <div class="text-center max-w-3xl mx-auto mb-5 sm:mb-10 p-4 sm:p-8 rounded-3xl clear-glass-hero text-white">
-                    <div class="inline-flex items-center space-x-2 bg-white/15 border border-white/30 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-medium text-white mb-2.5 sm:mb-4">
+                <!-- ЕДИНСТВЕН Заглавен блок с кристален Glass ефект -->
+                <div class="text-center max-w-3xl mx-auto mb-5 sm:mb-8 p-5 sm:p-8 rounded-3xl clear-glass-hero text-white">
+                    <div class="inline-flex items-center space-x-2 bg-white/15 border border-white/30 px-3.5 py-1 rounded-full text-[11px] sm:text-xs font-medium text-white mb-2.5 sm:mb-3">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                         <span>Вътрешни ремонти в гр. София • Безплатен оглед</span>
                     </div>
-                    <h1 class="text-2xl sm:text-5xl font-extrabold tracking-tight text-white mb-1.5 sm:mb-3 drop-shadow-sm">
+                    <h1 class="text-2xl sm:text-5xl font-extrabold tracking-tight text-white mb-1.5 sm:mb-2.5 drop-shadow-sm">
                         Прецизни ремонти. Ясни цени.
                     </h1>
-                    <p class="text-xs sm:text-base text-white/90 leading-relaxed max-w-2xl mx-auto">
-                        Изберете услуга за описание и ценоразпис или изпратете снимки за оферта.
+                    <p class="text-xs sm:text-base text-white/90 leading-relaxed max-w-xl mx-auto">
+                        Изберете услуга по-долу за подробно описание и ценоразпис за труд.
                     </p>
                 </div>
 
-                <!-- BENTO GRID С УСЛУГИТЕ (Компактни бутони 2х3 на телефон, пълни карти на компютър) -->
-                <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
+                <!-- КОМПАКТНИ БУТОНИ ЗА УСЛУГИТЕ (Само икона + заглавие + стрелка) -->
+                <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
                     
                     <!-- 1. Бани -->
-                    <div onclick="openServicePage('banya')" class="bento-card clear-glass-card group rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 cursor-pointer flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-center mb-2.5 sm:mb-4">
-                                <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-apple-blue/10 flex items-center justify-center text-apple-blue group-hover:bg-apple-blue group-hover:text-white transition-colors">
-                                    <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M4 12h16a1 1 0 0 1 1 1v3a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-3a1 1 0 0 1 1-1z"/>
-                                        <path d="M6 12V5a2 2 0 0 1 2-2h3v2.25"/>
-                                    </svg>
-                                </div>
-                                <span class="text-[11px] sm:text-xs font-semibold text-apple-blue flex items-center gap-1">
-                                    <span class="hidden sm:inline">Цени</span>
-                                    <i class="fa-solid fa-chevron-right text-[10px] group-hover:translate-x-0.5 transition-transform"></i>
-                                </span>
+                    <button onclick="openServicePage('banya')" class="bento-card clear-glass-card group rounded-2xl p-3.5 sm:p-5 text-left flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-3 sm:gap-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-apple-blue/10 flex items-center justify-center text-apple-blue group-hover:bg-apple-blue group-hover:text-white transition-colors shrink-0">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 12h16a1 1 0 0 1 1 1v3a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4v-3a1 1 0 0 1 1-1z"/>
+                                    <path d="M6 12V5a2 2 0 0 1 2-2h3v2.25"/>
+                                </svg>
                             </div>
-                            <h2 class="text-xs sm:text-lg font-bold text-apple-dark leading-snug sm:mb-1.5">Бани и мокри помещения</h2>
-                            <p class="hidden sm:block text-xs text-slate-600 leading-relaxed">
-                                Къртене, подмяна на ВиК, хидроизолация, лепене на фаянс и гранитогрес, монтаж на санитария.
-                            </p>
+                            <div>
+                                <h2 class="text-xs sm:text-base font-bold text-apple-dark leading-snug">Бани и мокри помещения</h2>
+                                <span class="text-[10px] sm:text-xs text-apple-blue font-semibold block mt-0.5">Виж описание и цени</span>
+                            </div>
                         </div>
-                        <div class="hidden sm:flex mt-5 pt-3.5 border-t border-slate-200/70 justify-between items-center text-xs text-slate-500">
-                            <span>9 операции в ценоразписа</span>
-                            <span class="text-apple-dark font-bold group-hover:text-apple-blue transition">Отвори &rarr;</span>
-                        </div>
-                    </div>
+                        <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:text-apple-blue group-hover:translate-x-0.5 transition-transform shrink-0"></i>
+                    </button>
 
                     <!-- 2. Шпакловка -->
-                    <div onclick="openServicePage('shpaklovka')" class="bento-card clear-glass-card group rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 cursor-pointer flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-center mb-2.5 sm:mb-4">
-                                <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-apple-blue/10 flex items-center justify-center text-apple-blue group-hover:bg-apple-blue group-hover:text-white transition-colors">
-                                    <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M3 17h18l-2-7H5l-2 7z"/>
-                                        <path d="M9 10V6a3 3 0 0 1 6 0v4"/>
-                                    </svg>
-                                </div>
-                                <span class="text-[11px] sm:text-xs font-semibold text-apple-blue flex items-center gap-1">
-                                    <span class="hidden sm:inline">Цени</span>
-                                    <i class="fa-solid fa-chevron-right text-[10px] group-hover:translate-x-0.5 transition-transform"></i>
-                                </span>
+                    <button onclick="openServicePage('shpaklovka')" class="bento-card clear-glass-card group rounded-2xl p-3.5 sm:p-5 text-left flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-3 sm:gap-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-apple-blue/10 flex items-center justify-center text-apple-blue group-hover:bg-apple-blue group-hover:text-white transition-colors shrink-0">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M3 17h18l-2-7H5l-2 7z"/>
+                                    <path d="M9 10V6a3 3 0 0 1 6 0v4"/>
+                                </svg>
                             </div>
-                            <h2 class="text-xs sm:text-lg font-bold text-apple-dark leading-snug sm:mb-1.5">Шпакловка и изправяне</h2>
-                            <p class="hidden sm:block text-xs text-slate-600 leading-relaxed">
-                                Гипсова и фина шпакловка, стъклотекстилна мрежа, ъглохранители и безпрахово шлайфане.
-                            </p>
+                            <div>
+                                <h2 class="text-xs sm:text-base font-bold text-apple-dark leading-snug">Шпакловка и изправяне</h2>
+                                <span class="text-[10px] sm:text-xs text-apple-blue font-semibold block mt-0.5">Виж описание и цени</span>
+                            </div>
                         </div>
-                        <div class="hidden sm:flex mt-5 pt-3.5 border-t border-slate-200/70 justify-between items-center text-xs text-slate-500">
-                            <span>8 операции в ценоразписа</span>
-                            <span class="text-apple-dark font-bold group-hover:text-apple-blue transition">Отвори &rarr;</span>
-                        </div>
-                    </div>
+                        <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:text-apple-blue group-hover:translate-x-0.5 transition-transform shrink-0"></i>
+                    </button>
 
                     <!-- 3. Боядисване -->
-                    <div onclick="openServicePage('boyadisvane')" class="bento-card clear-glass-card group rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 cursor-pointer flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-center mb-2.5 sm:mb-4">
-                                <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-apple-blue/10 flex items-center justify-center text-apple-blue group-hover:bg-apple-blue group-hover:text-white transition-colors">
-                                    <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <rect x="4" y="3" width="14" height="6" rx="1.5"/>
-                                        <path d="M18 6h2a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-8a1 1 0 0 0-1 1v2"/>
-                                        <rect x="9.5" y="15" width="3" height="6" rx="1"/>
-                                    </svg>
-                                </div>
-                                <span class="text-[11px] sm:text-xs font-semibold text-apple-blue flex items-center gap-1">
-                                    <span class="hidden sm:inline">Цени</span>
-                                    <i class="fa-solid fa-chevron-right text-[10px] group-hover:translate-x-0.5 transition-transform"></i>
-                                </span>
+                    <button onclick="openServicePage('boyadisvane')" class="bento-card clear-glass-card group rounded-2xl p-3.5 sm:p-5 text-left flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-3 sm:gap-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-apple-blue/10 flex items-center justify-center text-apple-blue group-hover:bg-apple-blue group-hover:text-white transition-colors shrink-0">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="4" y="3" width="14" height="6" rx="1.5"/>
+                                    <path d="M18 6h2a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-8a1 1 0 0 0-1 1v2"/>
+                                    <rect x="9.5" y="15" width="3" height="6" rx="1"/>
+                                </svg>
                             </div>
-                            <h2 class="text-xs sm:text-lg font-bold text-apple-dark leading-snug sm:mb-1.5">Боядисване с латекс</h2>
-                            <p class="hidden sm:block text-xs text-slate-600 leading-relaxed">
-                                Пълно опаковане на мебели и подове, дълбоко грундиране, отсичане и равномерно боядисване.
-                            </p>
+                            <div>
+                                <h2 class="text-xs sm:text-base font-bold text-apple-dark leading-snug">Боядисване с латекс</h2>
+                                <span class="text-[10px] sm:text-xs text-apple-blue font-semibold block mt-0.5">Виж описание и цени</span>
+                            </div>
                         </div>
-                        <div class="hidden sm:flex mt-5 pt-3.5 border-t border-slate-200/70 justify-between items-center text-xs text-slate-500">
-                            <span>8 операции в ценоразписа</span>
-                            <span class="text-apple-dark font-bold group-hover:text-apple-blue transition">Отвори &rarr;</span>
-                        </div>
-                    </div>
+                        <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:text-apple-blue group-hover:translate-x-0.5 transition-transform shrink-0"></i>
+                    </button>
 
                     <!-- 4. Гипсокартон -->
-                    <div onclick="openServicePage('gipsokarton')" class="bento-card clear-glass-card group rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 cursor-pointer flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-center mb-2.5 sm:mb-4">
-                                <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-apple-blue/10 flex items-center justify-center text-apple-blue group-hover:bg-apple-blue group-hover:text-white transition-colors">
-                                    <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M12 3L3 8l9 5 9-5-9-5z"/>
-                                        <path d="M3 13l9 5 9-5"/>
-                                        <path d="M3 18l9 5 9-5"/>
-                                    </svg>
-                                </div>
-                                <span class="text-[11px] sm:text-xs font-semibold text-apple-blue flex items-center gap-1">
-                                    <span class="hidden sm:inline">Цени</span>
-                                    <i class="fa-solid fa-chevron-right text-[10px] group-hover:translate-x-0.5 transition-transform"></i>
-                                </span>
+                    <button onclick="openServicePage('gipsokarton')" class="bento-card clear-glass-card group rounded-2xl p-3.5 sm:p-5 text-left flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-3 sm:gap-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-apple-blue/10 flex items-center justify-center text-apple-blue group-hover:bg-apple-blue group-hover:text-white transition-colors shrink-0">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 3L3 8l9 5 9-5-9-5z"/>
+                                    <path d="M3 13l9 5 9-5"/>
+                                    <path d="M3 18l9 5 9-5"/>
+                                </svg>
                             </div>
-                            <h2 class="text-xs sm:text-lg font-bold text-apple-dark leading-snug sm:mb-1.5">Гипсокартон и тавани</h2>
-                            <p class="hidden sm:block text-xs text-slate-600 leading-relaxed">
-                                Окачени тавани, преградни стени с вата, предстенни обшивки, скрити корнизи и куфари.
-                            </p>
+                            <div>
+                                <h2 class="text-xs sm:text-base font-bold text-apple-dark leading-snug">Гипсокартон и тавани</h2>
+                                <span class="text-[10px] sm:text-xs text-apple-blue font-semibold block mt-0.5">Виж описание и цени</span>
+                            </div>
                         </div>
-                        <div class="hidden sm:flex mt-5 pt-3.5 border-t border-slate-200/70 justify-between items-center text-xs text-slate-500">
-                            <span>8 операции в ценоразписа</span>
-                            <span class="text-apple-dark font-bold group-hover:text-apple-blue transition">Отвори &rarr;</span>
-                        </div>
-                    </div>
+                        <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:text-apple-blue group-hover:translate-x-0.5 transition-transform shrink-0"></i>
+                    </button>
 
                     <!-- 5. Електроуслуги -->
-                    <div onclick="openServicePage('elektro')" class="bento-card clear-glass-card group rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 cursor-pointer flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-center mb-2.5 sm:mb-4">
-                                <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-apple-blue/10 flex items-center justify-center text-apple-blue group-hover:bg-apple-blue group-hover:text-white transition-colors">
-                                    <svg class="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                                    </svg>
-                                </div>
-                                <span class="text-[11px] sm:text-xs font-semibold text-apple-blue flex items-center gap-1">
-                                    <span class="hidden sm:inline">Цени</span>
-                                    <i class="fa-solid fa-chevron-right text-[10px] group-hover:translate-x-0.5 transition-transform"></i>
-                                </span>
+                    <button onclick="openServicePage('elektro')" class="bento-card clear-glass-card group rounded-2xl p-3.5 sm:p-5 text-left flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-3 sm:gap-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-apple-blue/10 flex items-center justify-center text-apple-blue group-hover:bg-apple-blue group-hover:text-white transition-colors shrink-0">
+                                <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                </svg>
                             </div>
-                            <h2 class="text-xs sm:text-lg font-bold text-apple-dark leading-snug sm:mb-1.5">Контакти и осветление</h2>
-                            <p class="hidden sm:block text-xs text-slate-600 leading-relaxed">
-                                Нови контакти и ключове, монтаж на осветителни тела, лунички, LED ленти и ел. табла.
-                            </p>
+                            <div>
+                                <h2 class="text-xs sm:text-base font-bold text-apple-dark leading-snug">Контакти и осветление</h2>
+                                <span class="text-[10px] sm:text-xs text-apple-blue font-semibold block mt-0.5">Виж описание и цени</span>
+                            </div>
                         </div>
-                        <div class="hidden sm:flex mt-5 pt-3.5 border-t border-slate-200/70 justify-between items-center text-xs text-slate-500">
-                            <span>8 операции в ценоразписа</span>
-                            <span class="text-apple-dark font-bold group-hover:text-apple-blue transition">Отвори &rarr;</span>
-                        </div>
-                    </div>
+                        <i class="fa-solid fa-chevron-right text-xs text-slate-400 group-hover:text-apple-blue group-hover:translate-x-0.5 transition-transform shrink-0"></i>
+                    </button>
 
-                    <!-- 6. Тъмна Glass карта за директна заявка със снимки -->
-                    <div onclick="navigateTo('contact')" class="bento-card clear-glass-dark group text-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 cursor-pointer flex flex-col justify-between">
-                        <div>
-                            <div class="flex justify-between items-center mb-2.5 sm:mb-4">
-                                <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-white/15 flex items-center justify-center text-white">
-                                    <i class="fa-solid fa-camera text-sm sm:text-base"></i>
-                                </div>
-                                <span class="text-[10px] sm:text-xs font-semibold bg-apple-blue text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded-full">
-                                    Оферта
-                                </span>
+                    <!-- 6. Тъмен Glass бутон за директна заявка със снимки -->
+                    <button onclick="navigateTo('contact')" class="bento-card clear-glass-dark group text-white rounded-2xl p-3.5 sm:p-5 text-left flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-3 sm:gap-4">
+                            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-apple-blue flex items-center justify-center text-white shrink-0">
+                                <i class="fa-solid fa-camera text-sm sm:text-base"></i>
                             </div>
-                            <h2 class="text-xs sm:text-lg font-bold leading-snug sm:mb-1.5">Изпрати снимки за оферта</h2>
-                            <p class="hidden sm:block text-xs text-white/80 leading-relaxed">
-                                Опишете какво искате да ремонтираме и прикачете снимки за бърза консултация и оглед.
-                            </p>
+                            <div>
+                                <h2 class="text-xs sm:text-base font-bold leading-snug">Изпрати снимки за оферта</h2>
+                                <span class="text-[10px] sm:text-xs text-amber-300 font-semibold block mt-0.5">Към формата за запитване</span>
+                            </div>
                         </div>
-                        <div class="hidden sm:flex mt-5 pt-3.5 border-t border-white/15 justify-between items-center text-xs font-semibold">
-                            <span class="text-white">Към формата за запитване</span>
-                            <i class="fa-solid fa-arrow-right text-amber-400 group-hover:translate-x-1 transition-transform"></i>
-                        </div>
-                    </div>
+                        <i class="fa-solid fa-arrow-right text-xs text-amber-400 group-hover:translate-x-1 transition-transform shrink-0"></i>
+                    </button>
 
                 </div>
-                <!-- Долна стъклена лента за бърз преход към Галерията -->
-                <div class="mt-6 clear-glass-hero rounded-2xl p-4 px-6 text-white flex flex-col sm:flex-row items-center justify-between gap-3">
+
+                <!-- Компактна долна лента за бърз преход към Галерията -->
+                <div class="mt-4 sm:mt-6 clear-glass-hero rounded-2xl p-3.5 sm:p-4 px-5 text-white flex items-center justify-between gap-3">
                     <div class="flex items-center space-x-3 text-xs sm:text-sm">
-                        <span class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white">
+                        <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/20 flex items-center justify-center text-white shrink-0">
                             <i class="fa-regular fa-images"></i>
                         </span>
-                        <div>
-                            <span class="font-bold">Разгледайте реални обекти (Преди и След ремонта)</span>
-                            <span class="text-white/80 hidden sm:inline"> — Бани, шпакловки, боядисване и гипсокартон.</span>
-                        </div>
+                        <span class="font-semibold">Галерия: Завършени обекти (Преди и След)</span>
                     </div>
                     <button onclick="navigateTo('portfolio')" class="text-xs sm:text-sm font-bold text-amber-300 hover:text-white transition shrink-0">
-                        Отвори галерията &rarr;
+                        Разгледай &rarr;
                     </button>
                 </div>
 
@@ -692,7 +615,7 @@
                 Готово
             </button>
         </div>
-    </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
