@@ -1,15 +1,20 @@
 body {
-    background-color: #F8FAFC;
-    color: #0F172A;
-    font-family: 'Rubik', sans-serif;
+    background-color: #F5F5F7;
+    color: #1D1D1F;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.011em;
 }
 
-/* Плавно повдигане на картите при посочване */
-.service-card {
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.2s ease;
+h1, h2, h3 {
+    letter-spacing: -0.025em;
 }
 
-.service-card:hover {
-    transform: translateY(-4px);
+/* Плавна Apple анимация за Bento картите */
+.bento-card {
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease;
+}
+
+.bento-card:hover {
+    transform: scale(1.015);
 }

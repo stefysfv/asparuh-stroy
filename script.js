@@ -7,13 +7,13 @@ const servicesCatalog = {
         title: "Цялостен ремонт на бани и мокри помещения",
         formCategory: "Цялостен ремонт на баня",
         image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000&q=80",
-        description: "Извършваме пълна реконструкция на бани в панелни, тухлени и новостроящи се жилища. Поемаме целия процес — от къртенето на старите плочки и извозването на отпадъка, през подмяната на водопровода и хидроизолацията, до прецизното лепене на плочките и монтажа на оборудването.",
+        description: "Извършваме пълна реконструкция на бани в панелни, тухлени и новостроящи се жилища. Поемаме целия процес — от къртенето на старите плочки, през подмяната на водопровода и хидроизолацията, до прецизното лепене на плочките и монтажа на оборудването.",
         steps: [
             "Къртене на стари плочки, демонтаж на санитария и почистване на основата.",
             "Преработка или цялостна подмяна на ВиК разводки (ППР тръби) и канализация.",
-            "Изправяне на криви стени с мазилка или влагоустойчив гипсокартон и направа на замазка с точен наклон към сифона.",
-            "Полагане на двукомпонентна хидроизолация с уплътнителни ленти във всички ъгли и около сифоните.",
-            "Лепене на фаянс, теракот и широкоформатен гранитогрес с нивелираща система (клинове) и фугиране.",
+            "Изправяне на криви стени и направа на циментова замазка с точен наклон към сифона.",
+            "Полагане на двукомпонентна хидроизолация с уплътнителни ленти във всички ъгли.",
+            "Лепене на фаянс, теракот и гранитогрес с нивелираща система (клинове) и фугиране.",
             "Монтаж на вградени структури, моноблок, мивка, душ система, бойлер и аксесоари."
         ],
         prices: [
@@ -29,15 +29,15 @@ const servicesCatalog = {
         ]
     },
     shpaklovka: {
-        subtitle: "Категория 02 • Подготовка на стени и тавани",
+        subtitle: "Категория 02 • Стени и тавани",
         title: "Шпакловка, изправяне на стени и мазилки",
         formCategory: "Шпакловка и мазилки",
         image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1000&q=80",
-        description: "Идеално гладката стена е основата на всеки качествен интериор. Изпълняваме гипсови и фини пастообразни шпакловки, армираме със стъклотекстилна мрежа против напукване, оформяме прави ръбове и шлайфаме машинно с жираф и професионална прахосмукачка.",
+        description: "Идеално гладката стена е основата на всеки качествен интериор. Изпълняваме гипсови и фини пастообразни шпакловки, армираме със стъклотекстилна мрежа против напукване, оформяме прави ръбове и шлайфаме машинно с жираф и прахосмукачка.",
         steps: [
-            "Почистване на основата от стари покрития и нанасяне на дълбокопроникващ или контактен грунд (бетонконтакт).",
+            "Почистване на основата и нанасяне на дълбокопроникващ грунд или бетонконтакт.",
             "Изправяне на големи неравности и кривини с гипсова мазилка.",
-            "Монтаж на алуминиеви ъглохранители по всички външни ръбове и колони за перфектна геометрия.",
+            "Монтаж на алуминиеви ъглохранители по всички външни ръбове и колони.",
             "Полагане на гипсова шпакловка с вграждане на армираща стъклотекстилна мрежа.",
             "Нанасяне на 2 ръце фина пастообразна шпакловка за огледална гладкост.",
             "Машинно шлайфане с жираф и прахосмукачка без запрашаване на обекта."
@@ -54,15 +54,15 @@ const servicesCatalog = {
         ]
     },
     boyadisvane: {
-        subtitle: "Категория 03 • Финишни покрития и цветове",
+        subtitle: "Категория 03 • Финишни покрития",
         title: "Професионално боядисване с латекс",
         formCategory: "Боядисване с латекс",
         image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1000&q=80",
         description: "Чисто и равномерно боядисване на апартаменти, къщи и офиси без следи от валяк и без изцапани подове. Обръщаме специално внимание на пълното опаковане на обекта, правилното грундиране и прецизното отсичане между стени и тавани.",
         steps: [
-            "Цялостно опаковане на подови настилки, мебели, врати, прозорци и ключове с найлон и хартиено тиксо.",
-            "Обезпрашаване на стените и таваните и локални корекции на дребни забележки (дупчици, драскотини).",
-            "Нанасяне на специален грунд преди боя за уеднаквяване на попиваемостта и здрав захват на латекса.",
+            "Цялостно опаковане на подови настилки, мебели, врати и прозорци с найлон и тиксо.",
+            "Обезпрашаване на стените и локални корекции на дребни забележки.",
+            "Нанасяне на грунд преди боя за уеднаквяване на попиваемостта и здрав захват.",
             "Прецизно отсичане на ъглите между тавана и стените с професионални ленти.",
             "Нанасяне на две ръце висококачествен миещ се или дишащ латекс.",
             "Премахване на предпазните фолиа и чисто предаване на боядисаните помещения."
@@ -85,11 +85,11 @@ const servicesCatalog = {
         image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80",
         description: "Сухото строителство позволява бързо и чисто преобразяване на всяко помещение, изправяне на криви стени без мокри процеси, скриване на тръби и кабели, както и изграждане на модерни тавани със скрито LED осветление.",
         steps: [
-            "Точно лазерно нивелиране и разчертаване на металната скара по стени и тавани.",
-            "Монтаж на поцинковани профили (UD/CD и UW/CW) с уплътнителна лента по контура.",
-            "Полагане на минерална вата за топлоизолация в кухините при желание на клиента.",
-            "Зашиване с обикновен, влагоустойчив или пожароустойчив гипсокартон (еднослойно или двуслойно).",
-            "Изграждане на скрити ниши за пердета (корнизи), декоративни куфари и фигури за LED ленти.",
+            "Точно лазерно нивелиране и разчертаване на металната конструкция.",
+            "Монтаж на поцинковани профили (UD/CD и UW/CW) с уплътнителна лента.",
+            "Полагане на минерална вата за топлоизолация в кухините при желание.",
+            "Зашиване с обикновен или влагоустойчив гипсокартон (еднослойно или двуслойно).",
+            "Изграждане на скрити ниши за пердета, декоративни куфари и фигури за LED ленти.",
             "Фугиране на снадките с армираща лента на три ръце."
         ],
         prices: [
@@ -110,12 +110,12 @@ const servicesCatalog = {
         image: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1000&q=80",
         description: "При всеки модерен ремонт се налага добавяне на нови контакти, преместване на ключове спрямо мебелите и изграждане на ново осветление. Изпълняваме всички видове вътрешни електроуслуги надеждно и безопасно.",
         steps: [
-            "Определяне на точните места за нови контакти, ключове и изводи спрямо разпределението на стаята.",
-            "Прорязване на канали и отвори за конзолни кутии в тухла, бетон или гипсокартон.",
+            "Определяне на точните места за нови контакти, ключове и изводи.",
+            "Прорязване на канали и отвори за конзолни кутии в тухла, бетон или картон.",
             "Прокарване на нови силови кабели и замазване на каналите.",
-            "Монтаж на апартаментни ел. табла с автоматични предпазители и дефектнотокова защита.",
-            "Вграждане на алуминиеви профили за линейно LED осветление, монтаж на трансформатори и ленти.",
-            "Чист финализиращ монтаж на ключове, контакти, лунички, плафони и полилеи след боядисване."
+            "Монтаж на апартаментни ел. табла с автоматични предпазители и ДТЗ.",
+            "Вграждане на алуминиеви профили за линейно LED осветление и трансформатори.",
+            "Чист монтаж на ключове, контакти, лунички, плафони и полилеи след боядисване."
         ],
         prices: [
             { item: "Монтаж на ключ или контакт", unit: "бр.", price: "4.50 € / 8.80 лв." },
@@ -138,7 +138,7 @@ function closeMobileMenu() {
     const mobileIcon = document.getElementById('mobile-menu-icon');
     mobileMenu.classList.add('hidden');
     if (mobileIcon) {
-        mobileIcon.className = 'fa-solid fa-bars text-base';
+        mobileIcon.className = 'fa-solid fa-bars text-xs';
     }
 }
 
@@ -173,26 +173,26 @@ function openServicePage(serviceKey) {
 
     const stepsList = document.getElementById('srv-steps');
     stepsList.innerHTML = data.steps.map(step => `
-        <li class="flex items-start gap-3">
-            <span class="w-5 h-5 rounded-full bg-amber-100 text-amber-700 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span>
+        <li class="flex items-start gap-2.5">
+            <span class="w-4 h-4 rounded-full bg-apple-blue/10 text-apple-blue text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">✓</span>
             <span>${step}</span>
         </li>
     `).join('');
 
     const pricesBody = document.getElementById('srv-prices-body');
     pricesBody.innerHTML = data.prices.map(row => `
-        <tr class="hover:bg-slate-50 transition">
-            <td class="py-3.5 px-4 font-medium text-navy-900">${row.item}</td>
-            <td class="py-3.5 px-3 text-center text-slate-500 text-xs">${row.unit}</td>
-            <td class="py-3.5 px-4 text-right font-semibold text-amber-600">${row.price}</td>
+        <tr class="hover:bg-apple-bg/50 transition">
+            <td class="py-3 px-4 font-medium text-apple-dark">${row.item}</td>
+            <td class="py-3 px-2 text-center text-apple-gray">${row.unit}</td>
+            <td class="py-3 px-4 text-right font-semibold text-apple-dark">${row.price}</td>
         </tr>
     `).join('');
 
     document.querySelectorAll('.srv-tab-btn').forEach(btn => {
         if (btn.getAttribute('data-srv-btn') === serviceKey) {
-            btn.className = "srv-tab-btn px-3.5 py-2 rounded-xl text-xs font-medium bg-navy-900 text-white transition";
+            btn.className = "srv-tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-white text-apple-dark shadow-sm transition";
         } else {
-            btn.className = "srv-tab-btn px-3.5 py-2 rounded-xl text-xs font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 transition";
+            btn.className = "srv-tab-btn px-3 py-1.5 rounded-xl text-xs font-medium text-apple-gray hover:text-apple-dark transition";
         }
     });
 
@@ -205,49 +205,45 @@ function openServicePage(serviceKey) {
 const projectsData = [
     {
         id: 1,
-        code: "Обект 01",
         category: "бани",
         title: "Цялостен ремонт на баня с душ зона",
         location: "гр. София, кв. Лозенец",
         area: "6.5 м²",
         duration: "14 дни",
-        description: "Подмяна на ВиК тръби, полагане на хидроизолация, монтаж на структура за вграждане и лепене на гранитогрес 60x120 см.",
+        description: "Подмяна на ВиК тръби, хидроизолация, вградена структура и гранитогрес 60x120 см.",
         afterImg: "images/banya1.jpg",
         beforeImg: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80"
     },
     {
         id: 2,
-        code: "Обект 02",
         category: "гипсокартон",
         title: "Окачени тавани и скрито LED осветление",
         location: "гр. София, кв. Изток",
         area: "48 м²",
         duration: "7 дни",
-        description: "Изграждане на окачени тавани с ниши за скрити пердета, вграждане на алуминиеви профили за LED ленти и фино шпакловане.",
+        description: "Окачени тавани с ниши за пердета, вградени алуминиеви профили за LED ленти и шпакловка.",
         afterImg: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
         beforeImg: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80"
     },
     {
         id: 3,
-        code: "Обект 03",
         category: "шпакловка",
         title: "Фина шпакловка и изправяне на стени",
         location: "гр. София, кв. Иван Вазов",
         area: "140 м² стени",
         duration: "6 дни",
-        description: "Шпакловка с армираща мрежа, монтаж на алуминиеви ъглохранители и безпрахово шлайфане с жираф.",
+        description: "Шпакловка с армираща мрежа, монтаж на ъглохранители и безпрахово шлайфане с жираф.",
         afterImg: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80",
         beforeImg: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80"
     },
     {
         id: 4,
-        code: "Обект 04",
         category: "боядисване",
         title: "Боядисване на тристаен апартамент с латекс",
         location: "гр. София, кв. Младост",
         area: "220 м²",
         duration: "4 дни",
-        description: "Пълно опаковане на обекта, дълбоко грундиране, отсичане с ленти и боядисване в два цвята с миещ се латекс.",
+        description: "Пълно опаковане на обекта, дълбоко грундиране, отсичане и боядисване с миещ се латекс.",
         afterImg: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80",
         beforeImg: "https://images.unsplash.com/photo-1574359411659-15573a27fd0c?auto=format&fit=crop&w=800&q=80"
     }
@@ -264,29 +260,29 @@ function renderPortfolio(filterCategory = 'all') {
 
     filtered.forEach(project => {
         const card = document.createElement('div');
-        card.className = "bg-white rounded-2xl border border-slate-200/80 shadow-soft overflow-hidden flex flex-col justify-between";
+        card.className = "bg-white rounded-3xl border border-black/[0.05] shadow-bento overflow-hidden flex flex-col justify-between";
         card.innerHTML = `
             <div>
-                <div class="px-5 py-3 border-b border-slate-100 flex justify-between items-center text-xs bg-slate-50/70">
-                    <span class="font-semibold text-navy-900">${project.location}</span>
-                    <span class="text-slate-500">${project.area} • ${project.duration}</span>
+                <div class="px-5 py-3 border-b border-black/[0.04] flex justify-between items-center text-xs">
+                    <span class="font-semibold text-apple-dark">${project.location}</span>
+                    <span class="text-apple-gray">${project.area} • ${project.duration}</span>
                 </div>
-                <div class="relative h-64 overflow-hidden bg-slate-900">
+                <div class="relative h-60 overflow-hidden bg-apple-dark">
                     <img id="img-${project.id}" src="${project.afterImg}" alt="${project.title}" 
                          onerror="this.src='https://images.unsplash.com/photo-1620626011761-996317b8d101?auto=format&fit=crop&w=800&q=80'"
                          class="w-full h-full object-cover transition duration-500">
-                    <span id="badge-${project.id}" class="absolute top-3 left-3 bg-emerald-600 text-white text-[11px] font-medium rounded-lg px-3 py-1 shadow">
+                    <span id="badge-${project.id}" class="absolute top-3 left-3 bg-black/70 backdrop-blur-md text-white text-[11px] font-medium rounded-full px-3 py-1">
                         След ремонта
                     </span>
                     <button onclick="toggleBeforeAfter(${project.id})" id="btn-${project.id}" data-state="after"
-                            class="absolute bottom-3 right-3 bg-white/95 hover:bg-amber-600 hover:text-white text-navy-900 rounded-xl text-xs font-medium px-3.5 py-2 shadow-md transition flex items-center space-x-1.5">
+                            class="absolute bottom-3 right-3 bg-white/90 backdrop-blur-md hover:bg-apple-blue hover:text-white text-apple-dark rounded-full text-xs font-medium px-3.5 py-1.5 shadow-sm transition flex items-center space-x-1.5">
                         <i class="fa-solid fa-repeat text-[10px]"></i>
-                        <span>Виж ПРЕДИ ремонта</span>
+                        <span>Виж ПРЕДИ</span>
                     </button>
                 </div>
                 <div class="p-5">
-                    <h3 class="text-lg font-bold text-navy-900 mb-2 leading-snug">${project.title}</h3>
-                    <p class="text-xs text-slate-600 leading-relaxed">${project.description}</p>
+                    <h3 class="text-base font-bold text-apple-dark mb-1">${project.title}</h3>
+                    <p class="text-xs text-apple-gray leading-relaxed">${project.description}</p>
                 </div>
             </div>
         `;
@@ -303,23 +299,23 @@ function toggleBeforeAfter(projectId) {
     if (btnEl.getAttribute('data-state') === 'after') {
         imgEl.src = project.beforeImg;
         badgeEl.textContent = 'Преди ремонта';
-        badgeEl.className = 'absolute top-3 left-3 bg-amber-600 text-white text-[11px] font-medium rounded-lg px-3 py-1 shadow';
-        btnEl.innerHTML = '<i class="fa-solid fa-check text-[10px]"></i> <span>Върни СЛЕД ремонта</span>';
+        badgeEl.className = 'absolute top-3 left-3 bg-apple-blue text-white text-[11px] font-medium rounded-full px-3 py-1';
+        btnEl.innerHTML = '<i class="fa-solid fa-check text-[10px]"></i> <span>Върни СЛЕД</span>';
         btnEl.setAttribute('data-state', 'before');
     } else {
         imgEl.src = project.afterImg;
         badgeEl.textContent = 'След ремонта';
-        badgeEl.className = 'absolute top-3 left-3 bg-emerald-600 text-white text-[11px] font-medium rounded-lg px-3 py-1 shadow';
-        btnEl.innerHTML = '<i class="fa-solid fa-repeat text-[10px]"></i> <span>Виж ПРЕДИ ремонта</span>';
+        badgeEl.className = 'absolute top-3 left-3 bg-black/70 backdrop-blur-md text-white text-[11px] font-medium rounded-full px-3 py-1';
+        btnEl.innerHTML = '<i class="fa-solid fa-repeat text-[10px]"></i> <span>Виж ПРЕДИ</span>';
         btnEl.setAttribute('data-state', 'after');
     }
 }
 
 function filterProjects(category, btnElement) {
     document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.className = "filter-btn bg-slate-100 text-slate-700 hover:bg-slate-200 px-4 py-2.5 rounded-xl transition";
+        btn.className = "filter-btn text-apple-gray hover:text-apple-dark px-3.5 py-1.5 rounded-xl transition";
     });
-    btnElement.className = "filter-btn bg-navy-900 text-white px-4 py-2.5 rounded-xl transition";
+    btnElement.className = "filter-btn bg-white text-apple-dark shadow-sm px-3.5 py-1.5 rounded-xl transition";
     renderPortfolio(category);
 }
 
@@ -336,14 +332,14 @@ fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
 
 dropZone.addEventListener('dragover', (e) => {
     e.preventDefault();
-    dropZone.classList.add('border-amber-500', 'bg-amber-50/40');
+    dropZone.classList.add('border-apple-blue', 'bg-apple-blue/5');
 });
 dropZone.addEventListener('dragleave', () => {
-    dropZone.classList.remove('border-amber-500', 'bg-amber-50/40');
+    dropZone.classList.remove('border-apple-blue', 'bg-apple-blue/5');
 });
 dropZone.addEventListener('drop', (e) => {
     e.preventDefault();
-    dropZone.classList.remove('border-amber-500', 'bg-amber-50/40');
+    dropZone.classList.remove('border-apple-blue', 'bg-apple-blue/5');
     handleFiles(e.dataTransfer.files);
 });
 
@@ -391,10 +387,10 @@ function renderPhotoPreviews() {
     }
     previewContainer.classList.remove('hidden');
     previewContainer.innerHTML = uploadedPhotos.map((photo, index) => `
-        <div class="relative rounded-xl border border-slate-200 h-24 bg-slate-50 overflow-hidden">
+        <div class="relative rounded-xl border border-black/[0.08] h-20 bg-apple-bg overflow-hidden">
             <img src="${photo.dataUrl}" class="w-full h-full object-cover">
             <button type="button" onclick="removePhoto(${index})" 
-                    class="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-navy-900/80 text-white text-xs flex items-center justify-center hover:bg-amber-600 transition">
+                    class="absolute top-1 right-1 w-5 h-5 rounded-full bg-black/70 text-white text-[10px] flex items-center justify-center hover:bg-apple-blue transition">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
@@ -414,7 +410,7 @@ form.addEventListener('submit', async (e) => {
     const submitBtn = document.getElementById('submit-btn');
     const originalBtnText = submitBtn.innerHTML;
     submitBtn.disabled = true;
-    submitBtn.innerHTML = '<span>Изпращане на заявката...</span> <i class="fa-solid fa-spinner fa-spin"></i>';
+    submitBtn.innerHTML = '<span>Изпращане...</span> <i class="fa-solid fa-spinner fa-spin"></i>';
 
     const areaValue = document.getElementById('projectArea').value || 'Не е посочена';
     const rawDescription = document.getElementById('projectDescription').value;
@@ -463,7 +459,7 @@ document.getElementById('mobile-menu-btn').addEventListener('click', () => {
     const mobileIcon = document.getElementById('mobile-menu-icon');
     const isHidden = mobileMenu.classList.toggle('hidden');
     if (mobileIcon) {
-        mobileIcon.className = isHidden ? 'fa-solid fa-bars text-base' : 'fa-solid fa-xmark text-lg';
+        mobileIcon.className = isHidden ? 'fa-solid fa-bars text-xs' : 'fa-solid fa-xmark text-sm';
     }
 });
 
