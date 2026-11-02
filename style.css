@@ -1,6 +1,6 @@
 body {
-    background-color: #F5F5F7;
-    color: #1D1D1F;
+    background-color: #F2F4F7;
+    color: #14171F;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-font-smoothing: antialiased;
     letter-spacing: -0.011em;
@@ -10,11 +10,47 @@ h1, h2, h3 {
     letter-spacing: -0.025em;
 }
 
-/* Плавна Apple анимация за Bento картите */
+/* Кристален прозрачен Glass ефект за заглавието и долната лента (прозира ясно към снимката) */
+.clear-glass-hero {
+    background: rgba(15, 23, 42, 0.38);
+    backdrop-filter: blur(6px) saturate(140%);
+    -webkit-backdrop-filter: blur(6px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.22);
+}
+
+/* Светли полупрозрачни Bento карти със стъклен отблясък */
+.clear-glass-card {
+    background: rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+}
+
+.clear-glass-card:hover {
+    background: rgba(255, 255, 255, 0.96);
+    border-color: #FFFFFF;
+}
+
+/* Тъмна прозрачна Glass карта за бутона със снимки */
+.clear-glass-dark {
+    background: rgba(20, 23, 31, 0.78);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+}
+
+.clear-glass-dark:hover {
+    background: rgba(20, 23, 31, 0.92);
+}
+
+/* Плавна анимация при посочване */
 .bento-card {
-    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .bento-card:hover {
-    transform: scale(1.015);
+    transform: translateY(-4px);
 }
