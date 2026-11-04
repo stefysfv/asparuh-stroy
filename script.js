@@ -131,18 +131,20 @@ const servicesCatalog = {
 };
 
 /* =========================================================================
-   2. НАВИГАЦИЯ МЕЖДУ СТРАНИЦИТЕ И МОБИЛНО МЕНЮ
+   2. НАВИГАЦИЯ С РЕАЛНИ URL АДРЕСИ (HASH ROUTING) И БУТОН "НАЗАД"
    ========================================================================= */
+let formLoadedTimestamp = Date.now();
+
 function closeMobileMenu() {
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileIcon = document.getElementById('mobile-menu-icon');
     mobileMenu.classList.add('hidden');
     if (mobileIcon) {
-        mobileIcon.className = 'fa-solid fa-bars text-xs';
+        mobileIcon.className = 'fa-solid fa-bars text-sm';
     }
 }
 
-function navigateTo(viewName) {
+function showViewDom(viewName) {
     document.querySelectorAll('.page-view').forEach(view => {
         view.classList.add('hidden');
     });
@@ -152,13 +154,31 @@ function navigateTo(viewName) {
         targetView.classList.remove('hidden');
     }
 
+    if (viewName === 'contact') {
+        formLoadedTimestamp = Date.now();
+    }
+
     closeMobileMenu();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function openServicePage(serviceKey) {
+function navigateTo(viewName, updateHash = true) {
+    if (updateHash) {
+        const targetHash = viewName === 'home' ? '#home' : `#${viewName}`;
+        if (window.location.hash !== targetHash) {
+            history.pushState(null, '', targetHash);
+        }
+    }
+    showViewDom(viewName);
+}
+
+function openServicePage(serviceKey, updateHash = true) {
     const data = servicesCatalog[serviceKey];
     if (!data) return;
+
+    if (updateHash && window.location.hash !== `#${serviceKey}`) {
+        history.pushState(null, '', `#${serviceKey}`);
+    }
 
     document.getElementById('srv-subtitle').textContent = data.subtitle;
     document.getElementById('srv-title').textContent = data.title;
@@ -182,9 +202,9 @@ function openServicePage(serviceKey) {
     const pricesBody = document.getElementById('srv-prices-body');
     pricesBody.innerHTML = data.prices.map(row => `
         <tr class="hover:bg-apple-bg/50 transition">
-            <td class="py-3 px-4 font-medium text-apple-dark">${row.item}</td>
+            <td class="py-3 px-3 sm:px-4 font-medium text-apple-dark">${row.item}</td>
             <td class="py-3 px-2 text-center text-apple-gray">${row.unit}</td>
-            <td class="py-3 px-4 text-right font-semibold text-apple-dark">${row.price}</td>
+            <td class="py-3 px-3 sm:px-4 text-right font-semibold text-apple-dark">${row.price}</td>
         </tr>
     `).join('');
 
@@ -192,12 +212,27 @@ function openServicePage(serviceKey) {
         if (btn.getAttribute('data-srv-btn') === serviceKey) {
             btn.className = "srv-tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold bg-white text-apple-dark shadow-sm transition";
         } else {
-            btn.className = "srv-tab-btn px-3 py-1.5 rounded-xl text-xs font-medium text-apple-gray hover:text-apple-dark transition";
+            btn.className = "srv-tab-btn px-3 py-1.5 rounded-xl text-xs font-semibold text-apple-gray hover:text-apple-dark transition";
         }
     });
 
-    navigateTo('service');
+    showViewDom('service');
 }
+
+function handleRouteFromHash() {
+    const hash = window.location.hash.replace('#', '');
+    if (!hash || hash === 'home') {
+        showViewDom('home');
+    } else if (servicesCatalog[hash]) {
+        openServicePage(hash, false);
+    } else if (hash === 'portfolio' || hash === 'contact') {
+        showViewDom(hash);
+    } else {
+        showViewDom('home');
+    }
+}
+
+window.addEventListener('popstate', handleRouteFromHash);
 
 /* =========================================================================
    3. ПОРТФОЛИО (ЗАВЪРШЕНИ ПРОЕКТИ ПРЕДИ / СЛЕД)
@@ -313,14 +348,14 @@ function toggleBeforeAfter(projectId) {
 
 function filterProjects(category, btnElement) {
     document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.className = "filter-btn text-apple-gray hover:text-apple-dark px-3.5 py-1.5 rounded-xl transition";
+        btn.className = "filter-btn text-apple-gray hover:text-apple-dark px-3.5 py-2 rounded-xl transition";
     });
-    btnElement.className = "filter-btn bg-white text-apple-dark shadow-sm px-3.5 py-1.5 rounded-xl transition";
+    btnElement.className = "filter-btn bg-white text-apple-dark shadow-sm px-3.5 py-2 rounded-xl transition";
     renderPortfolio(category);
 }
 
 /* =========================================================================
-   4. ПРИКАЧВАНЕ НА СНИМКИ И ИЗПРАЩАНЕ КЪМ GMAIL
+   4. ПРИКАЧВАНЕ НА СНИМКИ И ПРОВЕРЕНО ИЗПРАЩАНЕ (ЧЕТЕНЕ НА JSON СТАТУС)
    ========================================================================= */
 let uploadedPhotos = [];
 const dropZone = document.getElementById('drop-zone');
@@ -412,27 +447,41 @@ form.addEventListener('submit', async (e) => {
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<span>Изпращане...</span> <i class="fa-solid fa-spinner fa-spin"></i>';
 
-    const areaValue = document.getElementById('projectArea').value || 'Не е посочена';
-    const rawDescription = document.getElementById('projectDescription').value;
+    const areaValue = document.getElementById('projectArea').value.trim() || 'Не е посочена';
+    const rawDescription = document.getElementById('projectDescription').value.trim();
+    const honeypotEl = document.getElementById('websiteUrl');
 
     const payload = {
-        name: document.getElementById('clientName').value,
-        phone: document.getElementById('clientPhone').value,
-        email: document.getElementById('clientEmail').value,
-        address: document.getElementById('clientAddress').value,
+        name: document.getElementById('clientName').value.trim(),
+        phone: document.getElementById('clientPhone').value.trim(),
+        email: document.getElementById('clientEmail').value.trim(),
+        address: document.getElementById('clientAddress').value.trim(),
         service: document.getElementById('serviceType').value,
         area: areaValue,
-        description: `Декларирана площ: ${areaValue}\n\n${rawDescription}`,
-        photos: uploadedPhotos
+        description: rawDescription,
+        photos: uploadedPhotos,
+        honeypot: honeypotEl ? honeypotEl.value : "",
+        formLoadedAt: formLoadedTimestamp
     };
 
     try {
-        await fetch(GOOGLE_SCRIPT_URL, {
+        // Без mode: 'no-cors' — четем реалния JSON отговор от Google Apps Script!
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
             method: 'POST',
-            mode: 'no-cors',
+            redirect: 'follow',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify(payload)
         });
+
+        if (!response.ok) {
+            throw new Error(`HTTP грешка: ${response.status}`);
+        }
+
+        const result = await response.json();
+
+        if (result.status !== 'success') {
+            throw new Error(result.message || 'Неуспешно изпращане на заявката.');
+        }
 
         document.getElementById('modal-name').textContent = payload.name;
         document.getElementById('modal-phone').textContent = payload.phone;
@@ -442,8 +491,10 @@ form.addEventListener('submit', async (e) => {
         form.reset();
         uploadedPhotos = [];
         renderPhotoPreviews();
+        formLoadedTimestamp = Date.now();
     } catch (error) {
-        alert('Възникна грешка при изпращането. Моля, обадете ни се по телефона.');
+        alert(error.message || 'Възникна грешка при изпращането. Моля, обадете ни се директно на 0899 800 438.');
+        console.error(error);
     } finally {
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalBtnText;
@@ -459,10 +510,11 @@ document.getElementById('mobile-menu-btn').addEventListener('click', () => {
     const mobileIcon = document.getElementById('mobile-menu-icon');
     const isHidden = mobileMenu.classList.toggle('hidden');
     if (mobileIcon) {
-        mobileIcon.className = isHidden ? 'fa-solid fa-bars text-xs' : 'fa-solid fa-xmark text-sm';
+        mobileIcon.className = isHidden ? 'fa-solid fa-bars text-sm' : 'fa-solid fa-xmark text-base';
     }
 });
 
 window.addEventListener('DOMContentLoaded', () => {
     renderPortfolio('all');
+    handleRouteFromHash();
 });
