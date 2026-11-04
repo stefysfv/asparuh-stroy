@@ -437,7 +437,7 @@ function removePhoto(index) {
     renderPhotoPreviews();
 }
 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw28ewWbiBrHpBkqN1q9TZ2B29i_9JCFL3-QCh1l1MoX6m3HEJ4pV8f7l76TTXVYSzzqg/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby5c0p0PVR5sP6OgETtjD-WZ975NBbtTMbfH0Tb7iW_WFqROFeOhF3SOkT_CP8VFFG_/exec";
 const form = document.getElementById('renovation-form');
 
 form.addEventListener('submit', async (e) => {
